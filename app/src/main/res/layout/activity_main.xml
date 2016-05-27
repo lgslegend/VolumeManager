@@ -9,20 +9,59 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="alan.tool.volumnmanager.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Set Max Volumn"
         android:id="@+id/button_set_max_vol"
-        android:layout_below="@+id/textView"
+        android:layout_marginTop="103dp"
+        android:clickable="true"
+        android:layout_below="@+id/seekbar_ring_vol"
+        android:layout_toRightOf="@+id/text_media_vol"
+        android:layout_toEndOf="@+id/text_media_vol"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp" />
+
+    <SeekBar
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekbar_ring_vol"
+        android:max="10"
+        android:indeterminate="false"
+        android:layout_marginTop="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/seekbar_media_vol"
+        android:layout_alignStart="@+id/seekbar_media_vol" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Ring Volumn: "
+        android:id="@+id/text_ring_vol"
+        android:layout_alignBottom="@+id/seekbar_ring_vol"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Media Volumn: "
+        android:id="@+id/text_media_vol"
+        android:layout_below="@+id/text_ring_vol"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="100dp"
-        android:clickable="true" />
+        android:layout_marginTop="27dp" />
+
+    <SeekBar
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekbar_media_vol"
+        android:max="10"
+        android:indeterminate="false"
+        android:layout_alignBottom="@+id/text_media_vol"
+        android:layout_alignRight="@+id/button_set_max_vol"
+        android:layout_alignEnd="@+id/button_set_max_vol" />
+
 </RelativeLayout>
