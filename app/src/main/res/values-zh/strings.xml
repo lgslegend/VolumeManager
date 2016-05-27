@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">音量管理器</string>
+    <string name="alarm_volume">闹钟音量:</string>
+    <string name="call_volume">通话音量:</string>
+    <string name="media_volume">媒体音量:</string>
+    <string name="ring_volume">铃声音量:</string>
+</resources>
