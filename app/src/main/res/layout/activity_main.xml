@@ -16,8 +16,8 @@
         android:id="@+id/button_set_max_vol"
         android:clickable="true"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/text_media_vol"
-        android:layout_toEndOf="@+id/text_media_vol"
+        android:layout_toRightOf="@+id/textview_media_vol"
+        android:layout_toEndOf="@+id/textview_media_vol"
         android:layout_marginBottom="128dp" />
 
     <SeekBar
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/ring_volume"
-        android:id="@+id/text_ring_vol"
+        android:id="@+id/textview_ring_vol"
         android:layout_alignBottom="@+id/seekbar_ring_vol"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -46,8 +46,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/media_volume"
-        android:id="@+id/text_media_vol"
-        android:layout_below="@+id/text_ring_vol"
+        android:id="@+id/textview_media_vol"
+        android:layout_below="@+id/textview_ring_vol"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="27dp" />
@@ -58,9 +58,9 @@
         android:id="@+id/seekbar_media_vol"
         android:max="10"
         android:indeterminate="false"
-        android:layout_alignBottom="@+id/text_media_vol"
-        android:layout_toRightOf="@+id/text_media_vol"
-        android:layout_toEndOf="@+id/text_media_vol"
+        android:layout_alignBottom="@+id/textview_media_vol"
+        android:layout_toRightOf="@+id/textview_media_vol"
+        android:layout_toEndOf="@+id/textview_media_vol"
         android:layout_marginLeft="35dp"
         android:layout_marginStart="35dp" />
 
@@ -71,7 +71,7 @@
         android:text="@string/alarm_volume"
         android:id="@+id/textview_alarm_vol"
         android:layout_marginTop="32dp"
-        android:layout_below="@+id/text_media_vol"
+        android:layout_below="@+id/textview_media_vol"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -105,5 +105,46 @@
         android:layout_alignBottom="@+id/textview_call_vol"
         android:layout_alignLeft="@+id/seekbar_alarm_vol"
         android:layout_alignStart="@+id/seekbar_alarm_vol" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textview_current_ring_vol"
+        android:layout_above="@+id/textview_media_vol"
+        android:layout_toRightOf="@+id/seekbar_ring_vol"
+        android:layout_toEndOf="@+id/seekbar_ring_vol"
+        android:text="0 / 0"
+        android:enabled="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textview_current_media_vol"
+        android:text="0 / 0"
+        android:layout_above="@+id/textview_alarm_vol"
+        android:layout_toRightOf="@+id/seekbar_media_vol"
+        android:layout_toEndOf="@+id/seekbar_media_vol" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textview_current_alarm_vol"
+        android:text="0 / 0"
+        android:layout_above="@+id/textview_call_vol"
+        android:layout_toRightOf="@+id/seekbar_alarm_vol"
+        android:layout_toEndOf="@+id/seekbar_alarm_vol" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textview_current_call_vol"
+        android:text="0 / 0"
+        android:layout_alignBottom="@+id/seekbar_call_vol"
+        android:layout_toRightOf="@+id/seekbar_call_vol"
+        android:layout_toEndOf="@+id/seekbar_call_vol" />
 
 </RelativeLayout>
