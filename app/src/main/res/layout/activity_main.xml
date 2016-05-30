@@ -9,17 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="alan.tool.volumnmanager.MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Set Max Volumn"
-        android:id="@+id/button_set_max_vol"
-        android:clickable="true"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/textview_media_vol"
-        android:layout_toEndOf="@+id/textview_media_vol"
-        android:layout_marginBottom="128dp" />
-
     <SeekBar
         android:layout_width="180dp"
         android:layout_height="wrap_content"

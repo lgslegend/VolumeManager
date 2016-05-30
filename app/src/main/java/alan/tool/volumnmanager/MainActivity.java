@@ -2,6 +2,8 @@ package alan.tool.volumnmanager;
 
 import android.content.Context;
 import android.media.AudioManager;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,11 +13,30 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    protected static final int PROGRESS_CHANGED = 0;
+    protected Handler handler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initSeekBars();
+
+        handler = new Handler() {
+            public void handleMessage(Message msg) {
+                switch (msg.what) {
+                    case PROGRESS_CHANGED:
+                        initSeekBars();
+                        break;
+                }
+            }
+        };
+
+        initUiUpdateThread();
+    }
+
+    protected void initSeekBars() {
         SeekBar seekbarRingVol = (SeekBar) findViewById(R.id.seekbar_ring_vol);
         SeekBar seekbarMediaVol = (SeekBar) findViewById(R.id.seekbar_media_vol);
         SeekBar seekbarCallVol = (SeekBar) findViewById(R.id.seekbar_call_vol);
@@ -55,5 +76,26 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void initUiUpdateThread() {
+        new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        while (!Thread.currentThread().isInterrupted()) {
+                            Message msg = new Message();
+                            msg.what = PROGRESS_CHANGED;
+
+                            MainActivity.this.handler.sendMessage(msg);
+
+                            try {
+                                Thread.sleep(300);
+                            } catch (InterruptedException e) {
+                                Thread.currentThread().interrupt();
+                            }
+                        }
+                    }
+                }).start();
     }
 }
