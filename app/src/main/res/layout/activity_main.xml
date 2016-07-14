@@ -15,7 +15,7 @@
         android:id="@+id/seekbar_ring_vol"
         android:max="10"
         android:indeterminate="false"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="78dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/seekbar_media_vol"
         android:layout_alignStart="@+id/seekbar_media_vol" />
@@ -135,5 +135,35 @@
         android:layout_alignBottom="@+id/seekbar_call_vol"
         android:layout_toRightOf="@+id/seekbar_call_vol"
         android:layout_toEndOf="@+id/seekbar_call_vol" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/button_save"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/seekbar_call_vol"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="71dp"
+        android:orientation="horizontal"
+        android:columnCount="3"
+        android:id="@+id/layout_profiles"></GridLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Load"
+        android:id="@+id/button_load"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

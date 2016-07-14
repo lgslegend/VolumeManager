@@ -4,4 +4,5 @@
     <string name="media_volume">Media Volume:</string>
     <string name="alarm_volume">Alarm Volume:</string>
     <string name="call_volume">Call Volume:</string>
+    <string name="profile_file_name">preference_profiles</string>
 </resources>

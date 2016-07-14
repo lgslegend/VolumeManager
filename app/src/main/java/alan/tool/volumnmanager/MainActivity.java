@@ -1,6 +1,7 @@
 package alan.tool.volumnmanager;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,10 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     protected static final int PROGRESS_CHANGED = 0;
+    private static final String RING_VOLUME = "ring_volume";
+    private static final String MEDIA_VOLUME = "media_volume";
+    private static final String CALL_VOLUME = "call_volume";
+    private static final String ALARM_VOLUME = "alarm_volume";
     protected Handler handler;
 
     @Override
@@ -33,7 +38,52 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        ((Button) findViewById(R.id.button_save)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveProfile("abc");
+            }
+        });
+
+        ((Button) findViewById(R.id.button_load)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadProfile("abc");
+            }
+        });
+
         initUiUpdateThread();
+    }
+
+    protected void saveProfile(String profile) {
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        int ringVol = audioManager.getStreamVolume(AudioManager.STREAM_RING);
+        int mediaVol = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+        int callVol = audioManager.getStreamVolume(AudioManager.STREAM_VOICE_CALL);
+        int alarmVol = audioManager.getStreamVolume(AudioManager.STREAM_ALARM);
+
+        System.out.println("ring: " + ringVol);
+        System.out.println("media: " + mediaVol);
+        System.out.println("call: " + callVol);
+        System.out.println("alarm: " + alarmVol);
+
+        SharedPreferences pref = getSharedPreferences(profile, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt(RING_VOLUME, ringVol);
+        editor.putInt(MEDIA_VOLUME, mediaVol);
+        editor.putInt(CALL_VOLUME, callVol);
+        editor.putInt(ALARM_VOLUME, alarmVol);
+
+        editor.commit();
+    }
+
+    protected void loadProfile(String profile) {
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        SharedPreferences pref = getSharedPreferences(profile, Context.MODE_PRIVATE);
+        audioManager.setStreamVolume(AudioManager.STREAM_RING, pref.getInt(RING_VOLUME, 0), AudioManager.FLAG_VIBRATE);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, pref.getInt(MEDIA_VOLUME, 0), AudioManager.FLAG_ALLOW_RINGER_MODES);
+        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, pref.getInt(CALL_VOLUME, 0), AudioManager.FLAG_ALLOW_RINGER_MODES);
+        audioManager.setStreamVolume(AudioManager.STREAM_ALARM, pref.getInt(ALARM_VOLUME, 0), AudioManager.FLAG_ALLOW_RINGER_MODES);
     }
 
     protected void initSeekBars() {
@@ -68,12 +118,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+                // Do nothing
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                // Do nothing
             }
         });
     }
@@ -90,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                             MainActivity.this.handler.sendMessage(msg);
 
                             try {
-                                Thread.sleep(300);
+                                Thread.sleep(200);
                             } catch (InterruptedException e) {
                                 Thread.currentThread().interrupt();
                             }
