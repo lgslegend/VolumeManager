@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -62,11 +63,6 @@ public class MainActivity extends AppCompatActivity {
         int callVol = audioManager.getStreamVolume(AudioManager.STREAM_VOICE_CALL);
         int alarmVol = audioManager.getStreamVolume(AudioManager.STREAM_ALARM);
 
-        System.out.println("ring: " + ringVol);
-        System.out.println("media: " + mediaVol);
-        System.out.println("call: " + callVol);
-        System.out.println("alarm: " + alarmVol);
-
         SharedPreferences pref = getSharedPreferences(profile, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(RING_VOLUME, ringVol);
@@ -80,10 +76,14 @@ public class MainActivity extends AppCompatActivity {
     protected void loadProfile(String profile) {
         AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         SharedPreferences pref = getSharedPreferences(profile, Context.MODE_PRIVATE);
-        audioManager.setStreamVolume(AudioManager.STREAM_RING, pref.getInt(RING_VOLUME, 0), AudioManager.FLAG_VIBRATE);
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, pref.getInt(MEDIA_VOLUME, 0), AudioManager.FLAG_ALLOW_RINGER_MODES);
-        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, pref.getInt(CALL_VOLUME, 0), AudioManager.FLAG_ALLOW_RINGER_MODES);
-        audioManager.setStreamVolume(AudioManager.STREAM_ALARM, pref.getInt(ALARM_VOLUME, 0), AudioManager.FLAG_ALLOW_RINGER_MODES);
+        int ringVol = pref.getInt(RING_VOLUME, 0);
+        int mediaVol = pref.getInt(MEDIA_VOLUME, 0);
+        int callVol = pref.getInt(CALL_VOLUME, 0);
+        int alarmVol = pref.getInt(ALARM_VOLUME, 0);
+        audioManager.setStreamVolume(AudioManager.STREAM_RING, ringVol, AudioManager.FLAG_VIBRATE);
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mediaVol, AudioManager.FLAG_VIBRATE);
+        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, callVol, AudioManager.FLAG_VIBRATE);
+        audioManager.setStreamVolume(AudioManager.STREAM_ALARM, alarmVol, AudioManager.FLAG_VIBRATE);
     }
 
     protected void initSeekBars() {
