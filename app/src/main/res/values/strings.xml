@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VolumnManager</string>
+    <string name="app_name">VolumeManager</string>
     <string name="ring_volume">Ring Volume:</string>
     <string name="media_volume">Media Volume:</string>
     <string name="alarm_volume">Alarm Volume:</string>

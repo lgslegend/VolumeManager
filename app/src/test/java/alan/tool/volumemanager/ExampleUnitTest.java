@@ -1,4 +1,4 @@
-package alan.tool.volumnmanager;
+package alan.tool.volumemanager;
 
 import org.junit.Test;
 

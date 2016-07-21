@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="alan.tool.volumnmanager.MainActivity">
+    tools:context="alan.tool.volumemanager.MainActivity">
 
     <SeekBar
         android:id="@+id/seekbar_ring_vol"
@@ -143,7 +143,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="@string/save" />
+        android:text="@string/save"
+        android:maxWidth="80dp"
+        android:minWidth="80dp" />
 
     <GridLayout
         android:id="@+id/layout_profiles"
@@ -198,6 +200,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="@string/load" />
+        android:text="@string/load"
+        android:minWidth="80dp"
+        android:maxWidth="80dp" />
 
 </RelativeLayout>

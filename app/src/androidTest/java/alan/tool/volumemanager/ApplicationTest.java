@@ -1,4 +1,4 @@
-package alan.tool.volumnmanager;
+package alan.tool.volumemanager;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
