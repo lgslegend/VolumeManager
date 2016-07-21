@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String CALL_VOLUME = "call_volume";
     private static final String ALARM_VOLUME = "alarm_volume";
     protected Handler handler;
+    private int selectedPreference = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initSeekBars();
+        initButtons();
 
         handler = new Handler() {
             public void handleMessage(Message msg) {
@@ -42,18 +46,38 @@ public class MainActivity extends AppCompatActivity {
         ((Button) findViewById(R.id.button_save)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveProfile("abc");
+                saveProfile(String.valueOf(selectedPreference));
             }
         });
 
         ((Button) findViewById(R.id.button_load)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadProfile("abc");
+                loadProfile(String.valueOf(selectedPreference));
             }
         });
 
         initUiUpdateThread();
+    }
+
+    protected void initButtons() {
+
+        final Button btnLoad = (Button) findViewById(R.id.button_load);
+        btnLoad.setEnabled(false);
+
+        final Button btnSave = (Button) findViewById(R.id.button_save);
+        btnSave.setEnabled(false);
+
+        RadioGroup preferenceGroup = (RadioGroup) findViewById(R.id.radiogroup_preferences);
+        preferenceGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                btnLoad.setEnabled(true);
+                btnSave.setEnabled(true);
+
+                selectedPreference = checkedId;
+            }
+        });
     }
 
     protected void saveProfile(String profile) {

@@ -5,4 +5,9 @@
     <string name="call_volume">通话音量:</string>
     <string name="media_volume">媒体音量:</string>
     <string name="ring_volume">铃声音量:</string>
+    <string name="preference1">室内</string>
+    <string name="preference2">室外</string>
+    <string name="preference3">办公室</string>
+    <string name="load">载入</string>
+    <string name="save">保存</string>
 </resources>

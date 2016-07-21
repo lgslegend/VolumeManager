@@ -5,4 +5,9 @@
     <string name="alarm_volume">Alarm Volume:</string>
     <string name="call_volume">Call Volume:</string>
     <string name="profile_file_name">preference_profiles</string>
+    <string name="preference1">In-house</string>
+    <string name="preference2">Outdoor</string>
+    <string name="preference3">Office</string>
+    <string name="load">Load</string>
+    <string name="save">Save</string>
 </resources>

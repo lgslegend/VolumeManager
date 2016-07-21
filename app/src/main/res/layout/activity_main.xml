@@ -10,160 +10,194 @@
     tools:context="alan.tool.volumnmanager.MainActivity">
 
     <SeekBar
+        android:id="@+id/seekbar_ring_vol"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:id="@+id/seekbar_ring_vol"
-        android:max="10"
-        android:indeterminate="false"
-        android:layout_marginTop="78dp"
-        android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/seekbar_media_vol"
-        android:layout_alignStart="@+id/seekbar_media_vol" />
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/seekbar_media_vol"
+        android:layout_marginTop="78dp"
+        android:indeterminate="false"
+        android:max="10" />
 
     <TextView
+        android:id="@+id/textview_ring_vol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/ring_volume"
-        android:id="@+id/textview_ring_vol"
         android:layout_alignBottom="@+id/seekbar_ring_vol"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:text="@string/ring_volume"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
+        android:id="@+id/textview_media_vol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/media_volume"
-        android:id="@+id/textview_media_vol"
-        android:layout_below="@+id/textview_ring_vol"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="27dp" />
+        android:layout_below="@+id/textview_ring_vol"
+        android:layout_marginTop="27dp"
+        android:text="@string/media_volume"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <SeekBar
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
         android:id="@+id/seekbar_media_vol"
-        android:max="10"
-        android:indeterminate="false"
-        android:layout_alignBottom="@+id/textview_media_vol"
-        android:layout_toRightOf="@+id/textview_media_vol"
-        android:layout_toEndOf="@+id/textview_media_vol"
-        android:layout_marginLeft="35dp"
-        android:layout_marginStart="35dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/alarm_volume"
-        android:id="@+id/textview_alarm_vol"
-        android:layout_marginTop="32dp"
-        android:layout_below="@+id/textview_media_vol"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/call_volume"
-        android:id="@+id/textview_call_vol"
-        android:layout_marginTop="31dp"
-        android:layout_below="@+id/textview_alarm_vol"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <SeekBar
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:id="@+id/seekbar_alarm_vol"
-        android:max="10"
+        android:layout_alignBottom="@+id/textview_media_vol"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_toEndOf="@+id/textview_media_vol"
+        android:layout_toRightOf="@+id/textview_media_vol"
         android:indeterminate="false"
+        android:max="10" />
+
+    <TextView
+        android:id="@+id/textview_alarm_vol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textview_media_vol"
+        android:layout_marginTop="32dp"
+        android:text="@string/alarm_volume"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textview_call_vol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textview_alarm_vol"
+        android:layout_marginTop="31dp"
+        android:text="@string/call_volume"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <SeekBar
+        android:id="@+id/seekbar_alarm_vol"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textview_alarm_vol"
         android:layout_alignLeft="@+id/seekbar_media_vol"
-        android:layout_alignStart="@+id/seekbar_media_vol" />
+        android:layout_alignStart="@+id/seekbar_media_vol"
+        android:indeterminate="false"
+        android:max="10" />
 
     <SeekBar
+        android:id="@+id/seekbar_call_vol"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:id="@+id/seekbar_call_vol"
-        android:max="10"
-        android:indeterminate="false"
         android:layout_alignBottom="@+id/textview_call_vol"
         android:layout_alignLeft="@+id/seekbar_alarm_vol"
-        android:layout_alignStart="@+id/seekbar_alarm_vol" />
+        android:layout_alignStart="@+id/seekbar_alarm_vol"
+        android:indeterminate="false"
+        android:max="10" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textview_current_ring_vol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/textview_media_vol"
-        android:layout_toRightOf="@+id/seekbar_ring_vol"
         android:layout_toEndOf="@+id/seekbar_ring_vol"
+        android:layout_toRightOf="@+id/seekbar_ring_vol"
+        android:enabled="true"
         android:text="0 / 0"
-        android:enabled="true" />
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textview_current_media_vol"
-        android:text="0 / 0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/textview_alarm_vol"
+        android:layout_toEndOf="@+id/seekbar_media_vol"
         android:layout_toRightOf="@+id/seekbar_media_vol"
-        android:layout_toEndOf="@+id/seekbar_media_vol" />
+        android:text="0 / 0"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/textview_current_alarm_vol"
-        android:text="0 / 0"
-        android:layout_above="@+id/textview_call_vol"
-        android:layout_toRightOf="@+id/seekbar_alarm_vol"
-        android:layout_toEndOf="@+id/seekbar_alarm_vol" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:id="@+id/textview_current_call_vol"
+        android:layout_above="@+id/textview_call_vol"
+        android:layout_toEndOf="@+id/seekbar_alarm_vol"
+        android:layout_toRightOf="@+id/seekbar_alarm_vol"
         android:text="0 / 0"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textview_current_call_vol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/seekbar_call_vol"
+        android:layout_toEndOf="@+id/seekbar_call_vol"
         android:layout_toRightOf="@+id/seekbar_call_vol"
-        android:layout_toEndOf="@+id/seekbar_call_vol" />
+        android:text="0 / 0"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Button
+        android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
-        android:id="@+id/button_save"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentTop="true"
+        android:text="@string/save" />
 
     <GridLayout
+        android:id="@+id/layout_profiles"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/seekbar_call_vol"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/seekbar_call_vol"
         android:layout_marginTop="71dp"
-        android:orientation="horizontal"
-        android:columnCount="3"
-        android:id="@+id/layout_profiles"></GridLayout>
+        android:columnCount="8"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:id="@+id/radiogroup_preferences">
+
+            <RadioButton
+                android:id="@+id/radio_preference1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:text="@string/preference1" />
+
+            <RadioButton
+                android:id="@+id/radio_preference2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:text="@string/preference2" />
+
+            <RadioButton
+                android:id="@+id/radio_preference3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_row="2"
+                android:checked="false"
+                android:text="@string/preference3" />
+        </RadioGroup>
+    </GridLayout>
 
     <Button
+        android:id="@+id/button_load"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Load"
-        android:id="@+id/button_load"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/load" />
 
 </RelativeLayout>
